@@ -5,15 +5,36 @@
 #include <sys/wait.h>
 #include <stdbool.h>
 #include <fcntl.h>
-
 #define MAX_INPUT 1024 //Aquí tenemos una constante para el input máximo que puede poner el usuario
 #warning "HOLA"
 /* 
-TODO: 
-- Añadir el soporte de redirecciones a la Shell, así como pipes y redirecciones múltiples
-- Añadir los nuevos conceptos que vaya aprendiendo al manual de C
-- Una vez haya terminado las 2 primeras cosas, repasar el código para ver que todo va en orden y eso
-- Luego sí empezaré el calendario en C
+NOTAS IMPORTANTES   
+- Esta es la versión v1 de la mini-Shell
+- Gracias a este proyecto, he aprendido a hacer mi propio parser para el input del usuario
+- Además, he aprendido nuevos conceptos y funciones que he agregado a mi manual de C, como los file descriptors,
+pipes, fork, chdir, getenv, fflush, execvp y execlp, wait, close, exit... entre otros
+- Además, he reforzado cosas que ya sabía de antes, como bucles y lógica general en C
+- Cosas incluidas en esta versión v1:
+    - Parser simple
+    - Algunos comandos built-in
+    - Ejecución de comandos simples (es decir, que no tienen ninguna pipe o redirección)
+    - Soporte de pipes simples
+    - Soporte de redirecciones simples
+- Cosas NO incluidas que se añadirán en la v2 o versiones futuras:
+    - Pipes múltiples
+    - Redirecciones múltiples
+    - Parser más avanzado
+    - Pequeños detalles (comando de historial, mostrar el directorio en el que estás al ladod el username y el 
+    hostname como en una Shell de verdad, etc)
+    - Más comandos built-in
+    - Otro tipo de comandos especiales (como &&)
+
+    ¿POR QUÉ NO HE AÑADIDO LAS PIPES MÚLTIPLES EN ESTA VERSSIÓN?
+
+    En un origen, esta versión debería de haber incluido las pipes y redirecciones múltiples, pero, luego de estar un día entero
+    intentando hacer las pipes múltiples y frustrándome porque no entendía aboslutamente nada de lo que hacía, decidí por volver a esta
+    versión estable y clasificarla como v1 del proyecto. Además, prefiero tener hecho algo simple pero que entiendo al 100% que algo 
+    más complejo pero que no entiendo absolutamente nada
 */
 
 
