@@ -33,3 +33,5 @@ and make this stable version without pipelines and multiple redirections. Also, 
 understand how it works that something more complex and cool that I don't know what the hell is going on.
 
 Currently, I'm working actively to add these two features to my projects, even tho they may seem difficult to make
+
+### P.D: All comments in this project are in Spanish (obviously because I'm spanish, duh). If you don't konw Spanish, use a translator or something
