@@ -28,7 +28,7 @@ this project are file descriptors, pipe(), fork(), chdir(), getenv(), fflush(), 
 ## Why I didn't add pipelines in this version?
 
 Honestly, this version should've included pipelines and multiple redirections, but after trying to make functional
-pipelines for several days while frustrating because I was SO confused and did'nt know what to do, I decided to let it be
+pipelines for several days while frustrating because I was SO confused and didn't know what to do, I decided to let it be
 and make this stable version without pipelines and multiple redirections. Also, I'd rather to have something simple that I fully
 understand how it works that something more complex and cool that I don't know what the hell is going on.
 
