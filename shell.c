@@ -7,36 +7,6 @@
 #include <fcntl.h>
 #define MAX_INPUT 1024 //Aquí tenemos una constante para el input máximo que puede poner el usuario
 #warning "HOLA"
-/* 
-NOTAS IMPORTANTES   
-- Esta es la versión v 1.0 de la mini-Shell
-- Gracias a este proyecto, he aprendido a hacer mi propio parser para el input del usuario
-- Además, he aprendido nuevos conceptos y funciones que he agregado a mi manual de , como los file descriptors,
-pipes, fork, chdir, getenv, fflush, execvp y execlp, wait, close, exit... entre otros
-- Además, he reforzado cosas que ya sabía de antes, como bucles y lógica general en C
-- Cosas incluidas en esta versión v1:
-    - Parser simple
-    - Algunos comandos built-in
-    - Ejecución de comandos simples (es decir, que no tienen ninguna pipe o redirección)
-    - Soporte de pipes simples
-    - Soporte de redirecciones simples
-- Cosas NO incluidas que se añadirán en la v 2.0 o versiones futuras:
-    - Pipes múltiples
-    - Redirecciones múltiples
-    - Parser más avanzado
-    - Pequeños detalles (comando de historial, mostrar el directorio en el que estás al lado del username y el 
-    hostname como en una Shell de verdad [tipo user@hostname:~/Desktop/Carpeta], etc)
-    - Más comandos built-in
-    - Otro tipo de comandos especiales (como &&)
-
-    ¿POR QUÉ NO HE AÑADIDO LAS PIPES MÚLTIPLES EN ESTA VERSSIÓN?
-
-    En un origen, esta versión debería de haber incluido las pipes y redirecciones múltiples, pero, luego de estar un día entero
-    intentando hacer las pipes múltiples durante varios y frustrándome porque no entendía aboslutamente nada de lo que hacía, decidí por volver a esta
-    versión estable y clasificarla como v 1.0 del proyecto. Además, prefiero tener hecho algo simple pero que entiendo al 100% que algo 
-    más complejo pero que no entiendo absolutamente nada. Actualmente estoy trabajando activamente para añadir los pipes y
-    redirecciones múltiples
-*/
 
 
 void parser(char *input, char *argv[]){ //Aquí está la función para parsear el input del usuario
