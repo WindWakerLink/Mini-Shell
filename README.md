@@ -23,7 +23,7 @@ this project are file descriptors, pipe(), fork(), chdir(), getenv(), fflush(), 
 - Advanced parser
 - Small details like showing the directory you're currently in, for example
 - More built-in commands
-- Other tipes of special commands (like && or &)
+- Other types of special commands (like && or &)
 
 ## Why I didn't add pipelines in this version?
 
