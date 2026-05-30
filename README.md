@@ -12,7 +12,7 @@ this project are file descriptors, pipe(), fork(), chdir(), getenv(), fflush(), 
 
 - Simple parser
 - Some built-in commands
-- Execution of simple commands (commands that don't have pipe nor redirections)
+- Execution of simple commands (commands that don't have pipes nor redirections)
 - Support for single pipes
 - Support for single redirections
 
