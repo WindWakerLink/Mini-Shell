@@ -1,5 +1,5 @@
 # MINI-SHELL PROJECT IN C
-## IMPORTANT NOTES
+
 
 - This is version 1.0 of the mini-Shell
 - Thanks to this project, i've learned how to make my own parser for user input
@@ -25,7 +25,7 @@ this project are file descriptors, pipe(), fork(), chdir(), getenv(), fflush(), 
 - More built-in commands
 - Other types of special commands (like && or &)
 
-## Why I didn't add pipelines in this version?
+## IMPORTANT NOTES
 
 Honestly, this version should've included pipelines and multiple redirections, but after trying to make functional
 pipelines for several days while frustrating because I was SO confused and didn't know what to do, I decided to let it be
