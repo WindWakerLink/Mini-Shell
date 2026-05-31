@@ -29,7 +29,7 @@ this project are file descriptors, pipe(), fork(), chdir(), getenv(), fflush(), 
 
 Honestly, this version should've included pipelines and multiple redirections, but after trying to make functional
 pipelines for several days while frustrating because I was SO confused and didn't know what to do, I decided to let it be
-and make this stable version without pipelines and multiple redirections. Also, I'd rather to have something simple that I fully
+and make this stable version without pipelines and multiple redirections. Also, I'd rather have something simple that I fully
 understand how it works that something more complex and cool that I don't know what the hell is going on.
 
 Currently, I'm working actively to add these two features to my projects, even tho they may seem difficult to make
