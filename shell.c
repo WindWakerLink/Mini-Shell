@@ -2,11 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 #include <sys/wait.h>
 #include <stdbool.h>
 #include <fcntl.h>
-#define MAX_INPUT 1024 //Aquí tenemos una constante para el input máximo que puede poner el usuario
-#warning "HOLA"
+#define MAX_INPUT 1024
+
 
 
 void parser(char *input, char *argv[]){ //Aquí está la función para parsear el input del usuario
@@ -61,25 +62,35 @@ void parser(char *input, char *argv[]){ //Aquí está la función para parsear e
     argv[j] = NULL;
 }
 
-int main()
+void printPrompt(void){
+
+    char *user = getenv("USER");
+    char *cwd = getcwd(NULL, 0);
+    char host[HOST_NAME_MAX + 1];
+    gethostname(host, sizeof(host));
+    printf("\x1B[1;36m%s@%s\x1B[0m:%s$ ", user, host, cwd);
+    free(cwd);
+}
+
+
+int main(void)
 {
     char input[MAX_INPUT];
+  
+    puts("You are now using \x1B[1;36mhf-shell\x1B[0m made by \x1B[1;36mHFMaker\x1B[0m");
+    
 
     while (1) //El bucle principal de la Shell
     {
-        printf("link@windwaker:~$ "); 
+        printPrompt();
         fflush(stdout);
-
-        if (!fgets(input, MAX_INPUT, stdin))
-        {
-            break;
-        }
+        if (!fgets(input, MAX_INPUT, stdin)) break;
         
     input[strcspn(input, "\n")] = 0;
 
     if (strlen(input) == 0) continue;
 
-    char *argv[100]; //El buffer qe guarda el input del usuario
+    char *argv[128]; //El buffer qe guarda el input del usuario
 
     parser(input, argv); //Aquí se parsea el input del usuario
 
@@ -97,6 +108,7 @@ int main()
         
     }
 
+    
     if (strcmp(argv[0], "exit") == 0){
         exit(0);
     }
@@ -109,18 +121,18 @@ int main()
             char *term = getenv("TERMINAL");
 
             if (term){
-                execlp(term, term, "-e", "./shell", NULL);
-                execlp(term, term, "--", "./shell", NULL);
+                execlp(term, term, "-e", "./hf-shell", NULL);
+                execlp(term, term, "--", "./hf-shell", NULL);
             }
 
-            execlp("x-terminal-emulator", "x-terminal-emulator", "-e", "./shell", NULL);
+            execlp("x-terminal-emulator", "x-terminal-emulator", "-e", "./hf-shell", NULL);
+            execlp("kitty", "kitty", "-e", "./hf-shell", NULL);
             execlp("konsole", "konsole", "-e", "./shell", NULL);
-            execlp("gnome-terminal", "gnome-terminal", "--", "./shell", NULL);
-            execlp("xfce4-terminal", "xfce4-terminal", "-e", "./shell", NULL);
-            execlp("alacritty", "alacritty", "-e", "./shell", NULL);
-            execlp("mate-terminal", "mate-terminal", "-e", "./shell", NULL);
-            execlp("xterm", "xterm", "-e", "./shell", NULL);
-            execlp("kitty", "kitty", "-e", "./shell", NULL);
+            execlp("gnome-terminal", "gnome-terminal", "--", "./hf-shell", NULL);
+            execlp("xfce4-terminal", "xfce4-terminal", "-e", "./hf-shell", NULL);
+            execlp("alacritty", "alacritty", "-e", "./hf-shell", NULL);
+            execlp("mate-terminal", "mate-terminal", "-e", "./hf-shell", NULL);
+            execlp("xterm", "xterm", "-e", "./hf-shell", NULL);
             perror("Compatible terminal not found");
             exit(1);
             execvp(argv[0], argv);
@@ -150,7 +162,7 @@ int main()
     if (pipe_on_input == true){ //Y aquí ejecutamos el comando del usuario si este tiene una pipe
             int fd[2];
             if (pipe(fd) == -1){
-                printf("Error al hacer el pipe");
+                printf("Error while doing the pipe");
                 return 0;
             }
             pid_t p1 = fork(); //Primero tenemos el primero proceso (el que se encuentra a la izquierda de la pipe)
